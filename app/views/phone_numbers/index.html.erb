@@ -1,1 +1,5 @@
-<p> HEY </p>
+<p>Call Log</p>
+
+<% @phone_numbers.each do |n| %>
+  <p><%= n.number %></p>
+<% end %>
