@@ -17,9 +17,25 @@ class PhoneNumbersController < ApplicationController
     end
   end
 
+  def edit
+    @phone_number = PhoneNumber.find(current_user.id)
+  end
+
+  def update
+    @phone_number = phone_number.find(current_phone_number.id)
+    @phone_number.update(phone_numbers_params)
+    if @phone_number.valid?
+      flash[:notice] = "#{@phone_number.email} has been updated"
+      redirect_to root_url
+    else
+      render 'edit'
+    end
+  end
+
+
 private
 
-  def users_params
+  def phone_numbers_params
     params.require(:user).permit(:user_id, :number)
   end
 end

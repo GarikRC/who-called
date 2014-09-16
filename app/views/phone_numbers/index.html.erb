@@ -3,3 +3,5 @@
 <% @phone_numbers.each do |n| %>
   <p><%= n.number %></p>
 <% end %>
+
+<%= link_to 'Add Caller', new_phone_number_path %>

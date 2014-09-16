@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
-  database: phone_log_development
+  database: call_log_development
 
 test:
   adapter: postgresql
-  database: phone_log_test
+  database: call_log_test
