@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(users_params)
+    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_url, notice: "Thank you for signing up!"
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    @user.update(users_params)
+    @user.update(user_params)
     if @user.valid?
       flash[:notice] = "#{@user.email} has been updated"
       redirect_to root_url
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
 private
 
-  def users_params
+  def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end

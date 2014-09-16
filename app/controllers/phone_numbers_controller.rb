@@ -19,6 +19,7 @@ class PhoneNumbersController < ApplicationController
 
   def show
     @phone_number = PhoneNumber.find(params[:id])
+    @testimonies = Testimony.where(:phone_number_id => @phone_number.id)
   end
 
   def edit
@@ -34,6 +35,13 @@ class PhoneNumbersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @phone_number = PhoneNumber.find(params[:id])
+    @phone_number.destroy
+    flash[:notice] = "#{@phone_number.number} has been deleted"
+    redirect_to root_url
   end
 
 
