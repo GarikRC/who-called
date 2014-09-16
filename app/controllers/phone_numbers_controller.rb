@@ -11,7 +11,7 @@ class PhoneNumbersController < ApplicationController
     @phone_number = PhoneNumber.new(phone_number_params)
     if @phone_number.save
       session[:phone_number_id] = @phone_number.id
-      redirect_to root_url, notice: "The number has been logged."
+      redirect_to phone_number_path(@phone_number), notice: "The number has been logged."
     else
       render 'new'
     end
@@ -20,21 +20,6 @@ class PhoneNumbersController < ApplicationController
   def show
     @phone_number = PhoneNumber.find(params[:id])
     @testimonies = Testimony.where(:phone_number_id => @phone_number.id)
-  end
-
-  def edit
-    @phone_number = PhoneNumber.find(current_user.id)
-  end
-
-  def update
-    @phone_number = phone_number.find(current_user.id)
-    @phone_number.update(phone_number_params)
-    if @phone_number.valid?
-      flash[:notice] = "#{@phone_number.number} has been updated"
-      redirect_to root_url
-    else
-      render 'edit'
-    end
   end
 
   def destroy

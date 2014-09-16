@@ -1,15 +1,23 @@
 <h2><%= @phone_number.number %></h2>
-
 <% if current_user %>
 	<% if current_user.id == @phone_number.user_id %>
-		<%= link_to "Delete", phone_number_path(@phone_number),
+		<%= link_to "Delete Number", phone_number_path(@phone_number),
                     :data => {:confirm => "You sure?",
                     :method => "delete"} %>
+		<br />
 	<% end %>
 <% end %>
 
 <% @testimonies.each do |t| %>
 	<p><%= t.tally %> <%= t.description %></p>
+	<% if current_user %>
+		<% if current_user.id == t.user_id %>
+			<%= link_to "Delete Testimony", phone_number_testimony_path(@phone_number, t),
+                    :data => {:confirm => "You sure?",
+                    :method => "delete"} %>
+			<br />
+		<% end %>
+	<% end %>
 <% end %>
 
 <%= link_to 'Add Testimony', new_phone_number_testimony_path(@phone_number) %>

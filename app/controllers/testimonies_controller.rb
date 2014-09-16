@@ -14,6 +14,30 @@ class TestimoniesController < ApplicationController
     end
   end
 
+  def edit
+    @testimony = Testimony.find(params[:id])
+  end
+
+  def update
+    @phone_number = PhoneNumber.find(params[:phone_number_id])
+    @testimony = testimony.find(params[:id])
+    @testimony.update(testimony_params)
+    if @testimony.valid?
+      flash[:notice] = "The testimony has been updated."
+      redirect_to phone_number_path(@phone_number)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @phone_number = PhoneNumber.find(params[:phone_number_id])
+    @testimony = Testimony.find(params[:id])
+    @testimony.destroy
+    flash[:notice] = "The testimony has been deleted."
+    redirect_to phone_number_path(@phone_number)
+  end
+
 
 private
 
