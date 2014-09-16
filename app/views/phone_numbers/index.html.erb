@@ -1,7 +1,7 @@
 <p>Call Log</p>
 
 <% @phone_numbers.each do |n| %>
-  <p><%= n.number %></p>
+  <p><%= link_to n.number, phone_number_path(n) %></p>
 <% end %>
 
 <%= link_to 'Add Caller', new_phone_number_path %>

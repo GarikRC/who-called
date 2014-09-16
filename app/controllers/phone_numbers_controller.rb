@@ -17,6 +17,10 @@ class PhoneNumbersController < ApplicationController
     end
   end
 
+  def show
+    @phone_number = PhoneNumber.find(params[:id])
+  end
+
   def edit
     @phone_number = PhoneNumber.find(current_user.id)
   end
