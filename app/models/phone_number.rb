@@ -5,5 +5,5 @@ class PhoneNumber < ActiveRecord::Base
   validates :number, length: { is: 10 }
 
   belongs_to :user
-  has_many :testimonies
+  has_many :testimonies, dependent: :destroy
 end

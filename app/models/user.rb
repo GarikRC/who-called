@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates_length_of :password, maximum: 25
 
-  has_many :phone_numbers
-  has_many :confirmations
-  has_many :testimonies
+  has_many :phone_numbers, dependent: :destroy
+  has_many :confirmations, dependent: :destroy
+  has_many :testimonies, dependent: :destroy
 
   has_secure_password
 

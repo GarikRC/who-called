@@ -7,5 +7,5 @@ describe PhoneNumber do
   it { should ensure_length_of(:number).is_equal_to(10) }
 
   it { should belong_to :user }
-  it { should have_many :testimonies }
+  it { should have_many(:testimonies).dependent(:destroy) }
 end

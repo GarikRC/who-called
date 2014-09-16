@@ -9,5 +9,5 @@ describe Testimony do
 
   it { should belong_to :user }
   it { should belong_to :phone_number }
-  it { should have_many :confirmations }
+  it { should have_many(:confirmations).dependent(:destroy) }
 end

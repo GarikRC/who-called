@@ -6,7 +6,7 @@ describe User do
   it { should validate_presence_of :password_digest }
   it { should ensure_length_of(:password).is_at_most(25) }
 
-  it { should have_many :phone_numbers }
-  it { should have_many :confirmations }
-  it { should have_many :testimonies }
+  it { should have_many(:phone_numbers).dependent(:destroy) }
+  it { should have_many(:confirmations).dependent(:destroy) }
+  it { should have_many(:testimonies).dependent(:destroy) }
 end

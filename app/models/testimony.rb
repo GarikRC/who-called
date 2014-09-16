@@ -7,5 +7,5 @@ class Testimony < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :phone_number
-  has_many :confirmations
+  has_many :confirmations, dependent: :destroy
 end
