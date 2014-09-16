@@ -15,12 +15,13 @@ class TestimoniesController < ApplicationController
   end
 
   def edit
+    @phone_number = PhoneNumber.find(params[:phone_number_id])
     @testimony = Testimony.find(params[:id])
   end
 
   def update
     @phone_number = PhoneNumber.find(params[:phone_number_id])
-    @testimony = testimony.find(params[:id])
+    @testimony = Testimony.find(params[:id])
     @testimony.update(testimony_params)
     if @testimony.valid?
       flash[:notice] = "The testimony has been updated."
