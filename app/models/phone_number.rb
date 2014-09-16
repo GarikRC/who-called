@@ -1,6 +1,7 @@
 class PhoneNumber < ActiveRecord::Base
   validates :user_id, :presence => true
-  validates :number, :presence => true
+  validates :number, :presence => true 
+  validates_uniqueness_of :number
   validates_numericality_of :number
   validates :number, length: { is: 10 }
 
