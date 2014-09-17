@@ -9,7 +9,7 @@
 <% end %>
 
 <% @testimonies.each do |t| %>
-	<p><%= t.tally %> <%= t.description %></p>
+	<p><%= t.tally %> | <%= t.description %> <%= link_to '+', phone_number_testimony_confirmations_path(@phone_number, t), :data => {:method => "post"} %></p>
 	<% if current_user %>
 		<% if current_user.id == t.user_id %>
 			<%= link_to "Edit", edit_phone_number_testimony_path(@phone_number, t) %> |

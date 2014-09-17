@@ -26,7 +26,7 @@
 <%= yield %>
 
 <% flash.each do |name, msg| %>
-    <p id = 'warning'><%= content_tag :div, msg, class: "alert alert-info" %></p>
+    <%= content_tag :div, msg, class: "alert alert-info" %>
 <% end %>
 
 </body>
