@@ -21,4 +21,6 @@
 	<% end %>
 <% end %>
 
-<h3><%= link_to 'Add Testimony', new_phone_number_testimony_path(@phone_number) %></h3>
+<% if current_user %>
+	<p><%= link_to 'Add Testimony', new_phone_number_testimony_path(@phone_number) %></p>
+<% end %>
