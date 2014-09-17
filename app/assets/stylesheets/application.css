@@ -6,3 +6,7 @@ body {
 .warning {
   color: red;
 }
+
+.alert {
+  color: red;
+}

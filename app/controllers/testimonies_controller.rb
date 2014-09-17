@@ -6,11 +6,12 @@ class TestimoniesController < ApplicationController
   end
 
   def create
+    @phone_number = PhoneNumber.find(params[:phone_number_id])
     @testimony = Testimony.new(testimony_params)
     if @testimony.save
       redirect_to root_url, notice: "Testimony added!"
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -25,7 +26,7 @@ class TestimoniesController < ApplicationController
     @testimony.update(testimony_params)
     if @testimony.valid?
       flash[:notice] = "The testimony has been updated."
-      redirect_to phone_number_path(@phone_number)
+      render 'new'
     else
       render 'edit'
     end

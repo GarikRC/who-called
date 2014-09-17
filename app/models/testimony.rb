@@ -3,7 +3,7 @@ class Testimony < ActiveRecord::Base
   validates :phone_number_id, :presence => true
   validates :description, :presence => true
   validates_uniqueness_of :description
-  validates_length_of :description, maximum: 1000
+  validates_length_of :description, :maximum => 1000
   validates :tally, :presence => true
 
   belongs_to :user

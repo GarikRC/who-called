@@ -1,12 +1,9 @@
 <%= form_for [@phone_number, @testimony] do |f| %>
   <% if @testimony.errors.any? %>
     <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% @testimony.errors.full_messages.each do |message| %>
-          <li class='error'><%= message %></li>
-        <% end %>
-      </ul>
+      <% @testimony.errors.full_messages.each do |message| %>
+        <p class='warning'><%= message %></p>
+      <% end %>
     </div>
   <% end %>
 

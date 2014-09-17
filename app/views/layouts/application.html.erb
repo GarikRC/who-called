@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= link_to 'Home', root_url %> |
 
   <% if current_user %>
     <%= current_user.email %> |
@@ -16,13 +17,17 @@
                                                 :data => {:confirm => "Are you sure?",
                                                 :method => "delete"} %>
   <% else %>
-    <%= link_to "Sign Up", signup_path %> or
+    <%= link_to "Sign Up", signup_path %> |
     <%= link_to "Log In", login_path %>
   <% end %>
   <br />
   <br />
 
 <%= yield %>
+
+<% flash.each do |name, msg| %>
+    <p id = 'warning'><%= content_tag :div, msg, class: "alert alert-info" %></p>
+<% end %>
 
 </body>
 </html>
