@@ -4,4 +4,6 @@ class Confirmation < ActiveRecord::Base
 
   belongs_to :testimony
   belongs_to :user
+
+  validates :testimony_id, uniqueness: { :scope => :user_id }
 end
