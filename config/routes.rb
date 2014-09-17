@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
 
-  resources :phone_numbers do
+  resources :phone_numbers, except: [:edit, :update] do
     resources :testimonies do
-      resources :confirmations
+      resources :confirmations, only: [:index, :create]
     end
   end
 
