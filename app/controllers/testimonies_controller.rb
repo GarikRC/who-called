@@ -26,7 +26,7 @@ class TestimoniesController < ApplicationController
     @testimony.update(testimony_params)
     if @testimony.valid?
       flash[:notice] = "The testimony has been updated."
-      render 'new'
+      redirect_to phone_number_path(@phone_number)
     else
       render 'edit'
     end
