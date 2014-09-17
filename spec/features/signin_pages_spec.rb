@@ -1,15 +1,21 @@
-describe "the signin process", :type => :feature do
-  before :each do
-    User.make(:email => 'user@example.com', :password => 'caplin')
+require 'rails_helper'
+
+describe "signin" do
+  it "signs a user in who uses the right password" do
+    visit '/sessions/new'
+    user = User.create(:email => 'user@me.com', :password => 'password')
+    fill_in 'Email', :with => 'user@me.com'
+    fill_in 'Password', :with => 'password'
+    click_button 'Log In'
+    page.should have_content 'Logged in!'
   end
 
-  it "signs me in" do
+  it "gives a user an error who uses the wrong password" do
     visit '/sessions/new'
-    within("#session") do
-      fill_in 'Email', :with => 'user@example.com'
-      fill_in 'Password', :with => 'password'
-    end
-    click_button 'Sign in'
-    expect(page).to have_content 'Success'
+    user = User.create(:email => 'user@me.com', :password => 'password')
+    fill_in 'Email', :with => 'user@me.com'
+    fill_in 'Password', :with => 'wrong'
+    click_button 'Log In'
+    page.should have_content 'Email or password is invalid'
   end
 end
