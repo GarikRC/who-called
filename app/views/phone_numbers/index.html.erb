@@ -4,4 +4,6 @@
 	<p><%= link_to n.number, phone_number_path(n) %></p>
 <% end %>
 
-<%= link_to 'Add Caller', new_phone_number_path %>
+<% if current_user %>
+  <%= link_to 'Add Caller', new_phone_number_path %>
+<% end %>
