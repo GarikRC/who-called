@@ -1,0 +1,18 @@
+body {
+  text-align: center;
+  background: white;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  color: black;
+}
+
+.warning {
+  color: red;
+}
+
+.alert {
+  color: red;
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
