@@ -9,7 +9,7 @@ class TestimoniesController < ApplicationController
     @phone_number = PhoneNumber.find(params[:phone_number_id])
     @testimony = Testimony.new(testimony_params)
     if @testimony.save
-      redirect_to root_url, notice: "Testimony added!"
+      redirect_to phone_number_path(@phone_number), notice: "Testimony added!"
     else
       render 'new'
     end
