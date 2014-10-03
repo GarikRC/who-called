@@ -1,4 +1,4 @@
-<%= form_for [@phone_number, @testimony], remote: true, id: "new-testimony" do |f| %>
+<%= form_for [@phone_number, @testimony], remote: true, id: "new_testimony" do |f| %>
   <% if @testimony.errors.any? %>
     <div class="error_messages">
       <% @testimony.errors.full_messages.each do |message| %>
