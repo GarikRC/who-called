@@ -1,0 +1,11 @@
+	<p><%= testimony.tally %> | <%= testimony.description %> 
+		<% if current_user %><%= link_to '+', phone_number_testimony_confirmations_path(@phone_number, testimony), :data => {:method => "post"} %></p><% end %>
+	<% if current_user %>
+		<% if current_user.id == testimony.user_id %>
+			<%= link_to "Edit", edit_phone_number_testimony_path(@phone_number, testimony) %> |
+			<%= link_to "Delete", phone_number_testimony_path(@phone_number, testimony),
+                    :data => {:confirm => "You sure?",
+                    :method => "delete"} %>
+			<br />
+		<% end %>
+	<% end %>

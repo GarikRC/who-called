@@ -9,9 +9,13 @@ class TestimoniesController < ApplicationController
     @phone_number = PhoneNumber.find(params[:phone_number_id])
     @testimony = Testimony.new(testimony_params)
     if @testimony.save
-      redirect_to phone_number_path(@phone_number), notice: "Testimony added!"
+      respond_to do |format|
+        format.html { redirect_to phone_number_path(@phone_number), notice: "Testimony added!" }
+        format.js
+      end
     else
-      render 'new'
+      flash[:notice] = "Description can't be blank."
+      redirect_to phone_number_path(@phone_number)
     end
   end
 

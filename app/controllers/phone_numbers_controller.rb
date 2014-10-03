@@ -1,6 +1,7 @@
 class PhoneNumbersController < ApplicationController
   def index
     @phone_numbers = PhoneNumber.all
+    @testimony = Testimony.new
   end
 
   def new

@@ -8,20 +8,12 @@
 	<% end %>
 <% end %>
 
-<% @testimonies.each do |t| %>
-	<p><%= t.tally %> | <%= t.description %> 
-		<% if current_user %><%= link_to '+', phone_number_testimony_confirmations_path(@phone_number, t), :data => {:method => "post"} %></p><% end %>
-	<% if current_user %>
-		<% if current_user.id == t.user_id %>
-			<%= link_to "Edit", edit_phone_number_testimony_path(@phone_number, t) %> |
-			<%= link_to "Delete", phone_number_testimony_path(@phone_number, t),
-                    :data => {:confirm => "You sure?",
-                    :method => "delete"} %>
-			<br />
-		<% end %>
+<div id="testimonies_collection">
+	<% if @testimonies_collection %>
+		<%= render(@testimonies_collection) %>
 	<% end %>
-<% end %>
+</div>
 
 <% if current_user %>
-	<p><%= link_to 'Add Testimony', new_phone_number_testimony_path(@phone_number) %></p>
+	<p><%= link_to "Add Testimony", new_phone_number_testimony_path(@phone_number), :remote => true, :id => "new-testimony-link",:class => "btn btn-primary" %></p>
 <% end %>
