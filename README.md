@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jozw/who-called.svg)](https://travis-ci.org/jozw/who-called)
+
 #Who Called?
 This app allows users to register unknown numbers, create a testimony or confirm other testimonies.
 
