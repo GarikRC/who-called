@@ -13,8 +13,8 @@ describe "creating a confirmation process" do
 	    number = PhoneNumber.create(:number => '3132124567')
 	    fill_in 'Number', :with => '3132124567'
 	    click_button 'Submit'
+	    visit "/phone_numbers/#{number.id}"
 	    click_link 'Add Testimony'
-	    visit "new"
 	    fill_in 'Description', :with => 'The number belongs to a telemarketer selling refurbished hospital linens. DO NOT ANSWER!'
 	    click_button 'Submit'
 	    click_link '+'
@@ -32,8 +32,8 @@ describe "creating a confirmation process" do
 	    number = PhoneNumber.create(:number => '3132124567')
 	    fill_in 'Number', :with => '3132124567'
 	    click_button 'Submit'
+	    visit "/phone_numbers/#{number.id}"
 	    click_link 'Add Testimony'
-	    visit "new"
 	    fill_in 'Description', :with => 'The number belongs to a telemarketer selling refurbished hospital linens. DO NOT ANSWER!'
 	    click_button 'Submit'
 	    click_link '+'
