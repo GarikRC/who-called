@@ -7,5 +7,5 @@ describe Confirmation do
   it { should belong_to :testimony }
   it { should belong_to :user }
 
-  it {should validate_uniqueness_of(:testimony_id).scoped_to(:user_id)}
+  it { should validate_uniqueness_of(:testimony_id).scoped_to(:user_id) }
 end
