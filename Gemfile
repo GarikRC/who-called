@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
 
 gem 'rails'
 gem 'pg'
@@ -19,7 +18,6 @@ group :development do
 end
 
 group :test, :development do
-  gem 'better_errors', '~> 2.0.0'
   gem 'rspec-rails'
 end
 
