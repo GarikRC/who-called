@@ -13,7 +13,7 @@ gem 'autoprefixer-rails'
 gem 'pry'
 
 group :development do
-  gem 'better_errors'
+  gem 'better_errors', '~> 2.0.0'
   gem 'binding_of_caller'
   gem 'quiet_assets'
 end
@@ -25,4 +25,8 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
+end
+
+group :production do
+  gem 'rails_12factor', '~> 0.0.3'
 end
