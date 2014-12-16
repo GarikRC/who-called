@@ -11,6 +11,7 @@ gem 'bcrypt'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'pry'
+gem 'rails_12factor', '~> 0.0.3'
 
 group :development do
   gem 'binding_of_caller'
@@ -24,8 +25,4 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
-end
-
-group :production do
-  gem 'rails_12factor', '~> 0.0.3'
 end

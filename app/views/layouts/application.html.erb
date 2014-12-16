@@ -2,12 +2,13 @@
 
 <html>
 <head>
-  <title>PhoneLog</title>
+  <title>Who Called?</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <p><b>Who Called? <b>
   <%= link_to 'Home', root_url %> |
 
   <% if current_user %>
@@ -22,6 +23,7 @@
   <% end %>
   <br />
   <br />
+  <p>
 
 <%= yield %>
 
